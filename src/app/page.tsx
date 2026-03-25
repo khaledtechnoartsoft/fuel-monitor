@@ -255,11 +255,11 @@ export default function Home() {
                           i === 0 ? "bg-amber-500 text-black shadow-[0_0_10px_rgba(245,158,11,0.5)]" : "bg-white/10 text-white"
                         )}>{i+1}</div>
                         <div className="flex flex-col">
-                           <span className="text-[10px] font-black uppercase text-white/80 tracking-tight leading-none mb-1">User_{r.userId.slice(0,4)}</span>
-                           <span className="text-[8px] font-bold text-muted-foreground opacity-60">Verified reports: 12</span>
+                           <span className="text-[10px] font-black uppercase text-white/80 tracking-tight leading-none mb-1">User_{r.userId?.slice?.(0,4) || "Anon"}</span>
+                           <span className="text-[8px] font-bold text-muted-foreground opacity-60">Verified reports: {r.isVerified ? 1 : 0}</span>
                         </div>
                      </div>
-                     <span className="text-[10px] font-black text-teal-400 px-2.5 py-1 bg-teal-400/10 rounded-lg border border-teal-400/20">PT: 1250</span>
+                     <span className="text-[10px] font-black text-teal-400 px-2.5 py-1 bg-teal-400/10 rounded-lg border border-teal-400/20">PT: {r.user?.trustScore || 10}</span>
                   </div>
                 ))}
              </div>
