@@ -74,7 +74,9 @@ model Report {
   locationName String
   lat          Float
   lng          Float
+  locationType LocationType @default(PUMP)
   status       ReportStatus
+  price        Float?
   description  String?
   imageUrl     String?
   isVerified   Boolean   @default(false)
@@ -88,6 +90,14 @@ enum ReportStatus {
   AVAILABLE
   NOT_AVAILABLE
   SUSPICIOUS
+  HOARDING
+  OVERPRICED
+}
+
+enum LocationType {
+  PUMP
+  SHOP
+  WAREHOUSE
 }
 
 model Vote {
